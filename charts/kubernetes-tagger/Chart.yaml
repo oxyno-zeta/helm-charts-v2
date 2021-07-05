@@ -8,4 +8,4 @@ maintainers:
 name: kubernetes-tagger
 sources:
 - https://github.com/oxyno-zeta/kubernetes-tagger
-version: 1.0.1
+version: 1.0.2
