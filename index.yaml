@@ -3,6 +3,21 @@ entries:
   kubernetes-tagger:
   - apiVersion: v1
     appVersion: 1.2.1
+    created: "2021-07-05T21:32:32.075315878Z"
+    description: A Helm chart for Kubernetes Tagger
+    digest: 44f0e37d2c34ea97f3675bccd06f6c022127db511829a9a28cd671971c741785
+    home: https://github.com/oxyno-zeta/kubernetes-tagger
+    maintainers:
+    - email: havrileckalexandre@gmail.com
+      name: oxyno-zeta
+    name: kubernetes-tagger
+    sources:
+    - https://github.com/oxyno-zeta/kubernetes-tagger
+    urls:
+    - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/kubernetes-tagger-1.0.5/kubernetes-tagger-1.0.5.tgz
+    version: 1.0.5
+  - apiVersion: v1
+    appVersion: 1.2.1
     created: "2021-07-05T20:48:31.746397036Z"
     description: A Helm chart for Kubernetes Tagger
     digest: c23525f00598fe7ee61063a9b33588727434c88347d6698ef90b868e3118852d
@@ -64,6 +79,21 @@ entries:
   prometheus-cachethq:
   - apiVersion: v1
     appVersion: 1.0.0
+    created: "2021-07-05T21:32:32.248795578Z"
+    description: A Helm chart for Kubernetes to deploy Prometheus-CachetHQ
+    digest: 616076fe065d1fca0785b5ad04dd69f8d83bfea557a61f9daa9d2d5d05c1fe0a
+    home: https://github.com/oxyno-zeta/prometheus-cachethq
+    maintainers:
+    - email: havrileckalexandre@gmail.com
+      name: oxyno-zeta
+    name: prometheus-cachethq
+    sources:
+    - https://github.com/oxyno-zeta/prometheus-cachethq
+    urls:
+    - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/prometheus-cachethq-1.0.2/prometheus-cachethq-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v1
+    appVersion: 1.0.0
     created: "2021-07-05T20:50:47.534401975Z"
     description: A Helm chart for Kubernetes to deploy Prometheus-CachetHQ
     digest: 2514f5669321733b5c9d7631cc01db632d1878a8dd5184f393c73ebcf44bfe83
@@ -93,6 +123,31 @@ entries:
     - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/prometheus-cachethq-1.0.0/prometheus-cachethq-1.0.0.tgz
     version: 1.0.0
   s3-proxy:
+  - apiVersion: v1
+    appVersion: 4.0.0
+    created: "2021-07-05T21:32:32.419695368Z"
+    description: A Helm chart for Kubernetes to deploy S3-Proxy
+    digest: 7df80f363cdc1171dc15502197a002e80961998628ceac6af6c9fcae2c3d0d05
+    home: https://github.com/oxyno-zeta/s3-proxy
+    icon: https://raw.githubusercontent.com/oxyno-zeta/s3-proxy/master/docs/logo/logo.png
+    keywords:
+    - s3
+    - reverse-proxy
+    - s3-proxy
+    - openid-connect
+    - basic-authentication
+    - s3-bucket
+    - serve-static
+    - opa
+    maintainers:
+    - email: havrileckalexandre@gmail.com
+      name: oxyno-zeta
+    name: s3-proxy
+    sources:
+    - https://github.com/oxyno-zeta/s3-proxy
+    urls:
+    - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/s3-proxy-2.4.1/s3-proxy-2.4.1.tgz
+    version: 2.4.1
   - apiVersion: v1
     appVersion: 4.0.0
     created: "2021-07-05T21:18:53.33853322Z"
@@ -395,4 +450,4 @@ entries:
     urls:
     - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/s3-proxy-1.0.0/s3-proxy-1.0.0.tgz
     version: 1.0.0
-generated: "2021-07-05T21:18:53.338681824Z"
+generated: "2021-07-05T21:32:32.420366097Z"
