@@ -1,3 +1,19 @@
 apiVersion: v1
-entries: {}
-generated: "2021-07-05T20:13:48.141468824Z"
+entries:
+  kubernetes-tagger:
+  - apiVersion: v1
+    appVersion: 1.2.1
+    created: "2021-07-05T20:42:22.089101854Z"
+    description: A Helm chart for Kubernetes Tagger
+    digest: caa87847d2555989c41044886313c925308762559ed12d71403dbc92ba689e7d
+    home: https://github.com/oxyno-zeta/kubernetes-tagger
+    maintainers:
+    - email: havrileckalexandre@gmail.com
+      name: oxyno-zeta
+    name: kubernetes-tagger
+    sources:
+    - https://github.com/oxyno-zeta/kubernetes-tagger
+    urls:
+    - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/kubernetes-tagger-1.0.1/kubernetes-tagger-1.0.1.tgz
+    version: 1.0.1
+generated: "2021-07-05T20:42:22.089115454Z"
