@@ -5,7 +5,7 @@
 ## TL;DR;
 
 ```console
-$ helm repo add oxynozeta-stable https://oxyno-zeta.github.io/helm-charts/stable/
+$ helm repo add oxynozeta-stable https://oxyno-zeta.github.io/helm-charts-v2/
 $ helm install oxynozeta-stable/kubernetes-tagger
 ```
 
