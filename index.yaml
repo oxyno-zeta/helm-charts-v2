@@ -64,6 +64,21 @@ entries:
   prometheus-cachethq:
   - apiVersion: v1
     appVersion: 1.0.0
+    created: "2021-07-05T20:50:47.534401975Z"
+    description: A Helm chart for Kubernetes to deploy Prometheus-CachetHQ
+    digest: 2514f5669321733b5c9d7631cc01db632d1878a8dd5184f393c73ebcf44bfe83
+    home: https://github.com/oxyno-zeta/prometheus-cachethq
+    maintainers:
+    - email: havrileckalexandre@gmail.com
+      name: oxyno-zeta
+    name: prometheus-cachethq
+    sources:
+    - https://github.com/oxyno-zeta/prometheus-cachethq
+    urls:
+    - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/prometheus-cachethq-1.0.1/prometheus-cachethq-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v1
+    appVersion: 1.0.0
     created: "2021-07-05T20:49:55.880063936Z"
     description: A Helm chart for Kubernetes to deploy Prometheus-CachetHQ
     digest: eb4ca860370ebe5fb950a7483c7d7d12e03cb99ad21756c8e12f59346d9910af
@@ -77,4 +92,4 @@ entries:
     urls:
     - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/prometheus-cachethq-1.0.0/prometheus-cachethq-1.0.0.tgz
     version: 1.0.0
-generated: "2021-07-05T20:49:55.880076637Z"
+generated: "2021-07-05T20:50:47.534415075Z"
