@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: oxyno-zeta/prometheus-cachethq
-  tag: 1.0.0
+  repository: oxynozeta/prometheus-cachethq
+  tag: 1.1.1
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
