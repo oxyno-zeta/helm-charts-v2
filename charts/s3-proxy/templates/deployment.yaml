@@ -34,6 +34,7 @@ spec:
         app.kubernetes.io/name: {{ include "s3-proxy.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      serviceAccountName: {{ template "s3-proxy.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
