@@ -486,3 +486,6 @@ deploymentStrategy:
   # rollingUpdate:
   #   maxSurge: 1
   #   maxUnavailable: 0
+
+podSecurityContext:
+  fsGroup: 1000
