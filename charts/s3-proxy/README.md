@@ -89,6 +89,8 @@ The following table lists the configurable parameters of the s3-proxy chart and 
 | `podDisruptionBudget.enabled`                 | If true, create a pod disruption budget for prometheus pods. The created resource cannot be modified once created - it must be deleted to perform a change | `false`                  |
 | `podDisruptionBudget.minAvailable`            | Minimum number / percentage of pods that should remain scheduled                                                                                           | `1`                      |
 | `podDisruptionBudget.maxUnavailable`          | Maximum number / percentage of pods that may be made unavailable                                                                                           | `""`                     |
+| `podSecurityContext.fsGroup`                  | Supplementary group ID                                                                                                                                     | `1000`                   |
+
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
