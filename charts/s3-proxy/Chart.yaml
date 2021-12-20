@@ -18,4 +18,4 @@ maintainers:
 name: s3-proxy
 sources:
   - https://github.com/oxyno-zeta/s3-proxy
-version: 2.7.0
+version: 2.7.1

@@ -42,11 +42,11 @@ The following table lists the configurable parameters of the s3-proxy chart and 
 | `replicaCount`                                | Desired number of pods                                                                                                                                     | `1`                      |
 | `image.name`                                  | Container image name (Including repository name if not `hub.docker.com`).                                                                                  | `oxynozeta/s3-proxy`     |
 | `image.pullPolicy`                            | Container pull policy.                                                                                                                                     | `IfNotPresent`           |
-| `image.tag`                                   | Container image tag.                                                                                                                                       | `3.2.0`                  |
+| `image.tag`                                   | Container image tag.                                                                                                                                       | `4.1.3`                  |
 | `nameOverride`                                | Name override                                                                                                                                              | `""`                     |
 | `fullnameOverride`                            | Fullname override                                                                                                                                          | `""`                     |
 | `serviceAccount.create`                       | Specifies whether a service account should be created                                                                                                      | `true`                   |
-| `serviceAccount.name`                         | Service account name created if create is true or service account name to be linked. If empty and create at true, this will be generated.               | `""`                     |
+| `serviceAccount.name`                         | Service account name created if create is true or service account name to be linked. If empty and create at true, this will be generated.                  | `""`                     |
 | `serviceAccount.annotations`                  | Additional annotations to apply to the pod.                                                                                                                | `{}`                     |
 | `service.annotations`                         | Annotations to add to service                                                                                                                              | `{}`                     |
 | `service.clusterIP`                           | IP address to assign to service                                                                                                                            | `""`                     |
@@ -90,7 +90,6 @@ The following table lists the configurable parameters of the s3-proxy chart and 
 | `podDisruptionBudget.minAvailable`            | Minimum number / percentage of pods that should remain scheduled                                                                                           | `1`                      |
 | `podDisruptionBudget.maxUnavailable`          | Maximum number / percentage of pods that may be made unavailable                                                                                           | `""`                     |
 | `podSecurityContext.fsGroup`                  | Supplementary group ID                                                                                                                                     | `1000`                   |
-
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
