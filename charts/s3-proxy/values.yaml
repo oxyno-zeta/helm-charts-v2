@@ -459,6 +459,9 @@ podAnnotations:
   # prometheus.io/path: "/metrics"
   # prometheus.io/port: "9090"
 
+# Extra pod labels.
+podLabels: {}
+
 grafana:
   # Use this only if you are using the Grafana operator from https://github.com/integr8ly/grafana-operator
   operator:
