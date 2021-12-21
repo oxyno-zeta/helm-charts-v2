@@ -70,8 +70,10 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
+          {{- if .Values.configFiles }}
           - name: config-volume
             mountPath: /proxy/conf
+          {{- end }}
           {{- if .Values.customTemplates }}
           - name: custom-templates-volume
             mountPath: /proxy/custom-templates
@@ -99,9 +101,11 @@ spec:
       securityContext: {{ toYaml .Values.podSecurityContext | nindent 8 }}
     {{- end }}
       volumes:
+        {{- if .Values.configFiles }}
         - name: config-volume
           configMap:
             name: {{ include "s3-proxy.fullname" . }}-config
+        {{- end }}
         {{- if .Values.customTemplates }}
         - name: custom-templates-volume
           configMap:
