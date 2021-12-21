@@ -34,6 +34,9 @@ spec:
         app.kubernetes.io/name: {{ include "s3-proxy.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      {{- if .Values.schedulerName }}
+      schedulerName: {{ .Values.schedulerName | quote }}
+      {{- end }}
       serviceAccountName: {{ template "s3-proxy.serviceAccountName" . }}
       {{- with .Values.initContainers }}
       {{- toYaml . | nindent 8 }}

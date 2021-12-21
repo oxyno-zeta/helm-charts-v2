@@ -517,3 +517,6 @@ extraVolumesMounts:
 
 # Init containers declarations.
 initContainers: []
+
+# Scheduler name
+schedulerName: ""
