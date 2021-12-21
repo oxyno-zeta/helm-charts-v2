@@ -35,6 +35,9 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
       serviceAccountName: {{ template "s3-proxy.serviceAccountName" . }}
+      {{- with .Values.initContainers }}
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -72,15 +75,18 @@ spec:
           volumeMounts:
           {{- if .Values.configFiles }}
           - name: config-volume
-            mountPath: /proxy/conf
+            mountPath: {{ .Values.volumeMountPaths.configurations }}
           {{- end }}
           {{- if .Values.customTemplates }}
           - name: custom-templates-volume
-            mountPath: /proxy/custom-templates
+            mountPath: {{ .Values.volumeMountPaths.customTemplates }}
           {{- end }}
           {{- if or .Values.secretFiles .Values.existingSecret }}
           - name: secret-files-volume
-            mountPath: /proxy/secret-files
+            mountPath:  {{ .Values.volumeMountPaths.secrets }}
+          {{- end }}
+          {{- with .Values.extraVolumesMounts }}
+          {{- toYaml . | nindent 10 }}
           {{- end }}
         {{- with .Values.sidecars }}
         {{- toYaml . | nindent 8 }}
@@ -120,4 +126,7 @@ spec:
         - name: secret-files-volume
           secret:
             secretName: {{ .Values.existingSecret }}
+        {{- end }}
+        {{- with .Values.extraVolumes }}
+        {{- toYaml . | nindent 8 }}
         {{- end }}

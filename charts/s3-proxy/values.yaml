@@ -490,3 +490,30 @@ deploymentStrategy:
 
 podSecurityContext:
   fsGroup: 1000
+
+# This is the declaration of the default volumes mount paths
+# in the s3-proxy container in pod.
+# This can be override for sidecar usage for example, init containers, ...
+# Use this with extra volumes feature.
+# Note: This doesn't change the fact that the application will use the /proxy/conf
+# directory to find the configurations.
+volumeMountPaths:
+  configurations: /proxy/conf
+  secrets: /proxy/secret-files
+  customTemplates: /proxy/custom-templates
+
+# This can be used to declare extra volumes.
+extraVolumes:
+  []
+  # - name: test
+  #   emptyDir: {}
+
+# This is for extra mounts in the s3-proxy containers only.
+# Sidecars or init containers have their own declarations.
+extraVolumesMounts:
+  []
+  # - name: test
+  #   mountPath: "/test"
+
+# Init containers declarations.
+initContainers: []
