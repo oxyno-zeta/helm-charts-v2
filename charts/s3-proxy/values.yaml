@@ -6,9 +6,10 @@ replicaCount: 1
 
 image:
   repository: oxynozeta/s3-proxy
-  tag: 4.1.3
+  tag: 4.2.0
   pullPolicy: IfNotPresent
 
+imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
@@ -86,6 +87,7 @@ env:
 #
 # See configuration of project: https://oxyno-zeta.github.io/s3-proxy/
 #
+# Note: This can put as blank. The application can start without any configuration.
 configFiles:
   config.yaml: |-
     # Log configuration
@@ -458,6 +460,9 @@ podAnnotations:
   # prometheus.io/path: "/metrics"
   # prometheus.io/port: "9090"
 
+# Extra pod labels.
+podLabels: {}
+
 grafana:
   # Use this only if you are using the Grafana operator from https://github.com/integr8ly/grafana-operator
   operator:
@@ -489,3 +494,36 @@ deploymentStrategy:
 
 podSecurityContext:
   fsGroup: 1000
+
+# This is the declaration of the default volumes mount paths
+# in the s3-proxy container in pod.
+# This can be override for sidecar usage for example, init containers, ...
+# Use this with extra volumes feature.
+# Note: This doesn't change the fact that the application will use the /proxy/conf
+# directory to find the configurations.
+volumeMountPaths:
+  configurations: /proxy/conf
+  secrets: /proxy/secret-files
+  customTemplates: /proxy/custom-templates
+
+# This can be used to declare extra volumes.
+extraVolumes:
+  []
+  # - name: test
+  #   emptyDir: {}
+
+# This is for extra mounts in the s3-proxy containers only.
+# Sidecars or init containers have their own declarations.
+extraVolumesMounts:
+  []
+  # - name: test
+  #   mountPath: "/test"
+
+# Init containers declarations.
+initContainers: []
+
+# Scheduler name
+schedulerName: ""
+
+# Priority class name.
+priorityClassName: ""
