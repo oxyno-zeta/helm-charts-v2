@@ -523,3 +523,6 @@ initContainers: []
 
 # Scheduler name
 schedulerName: ""
+
+# Priority class name.
+priorityClassName: ""
