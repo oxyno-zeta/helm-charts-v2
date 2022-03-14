@@ -27,6 +27,9 @@ spec:
         checksum/secret-file: {{ keys .Values.secretFiles | toString | sha256sum }}
         {{- end }}
         checksum/config: {{ keys .Values.configFiles | toString | sha256sum }}
+        {{- if .Values.fixedConfigFiles }}
+        checksum/fixed-config: {{ .Values.fixedConfigFiles | toString | sha256sum }}
+        {{- end }}
         {{- if .Values.podAnnotations }}
         {{- toYaml .Values.podAnnotations | nindent 8 -}}
         {{- end }}
