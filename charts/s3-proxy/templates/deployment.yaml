@@ -66,6 +66,11 @@ spec:
             - name: internal
               containerPort: 9090
               protocol: TCP
+          {{ if .Values.envFrom -}}
+          {{- with .Values.envFrom }}
+          envFrom: {{- toYaml . | nintent 10 }}
+          {{- end }}
+          {{- end }}
           {{ if .Values.env -}}
           env:
           {{- range $key, $value := .Values.env }}
