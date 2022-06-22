@@ -67,9 +67,7 @@ spec:
               containerPort: 9090
               protocol: TCP
           {{ if .Values.envFrom -}}
-          {{- with .Values.envFrom }}
-          envFrom: {{- toYaml . | nintent 10 }}
-          {{- end }}
+          envFrom: {{- toYaml .Values.livenessProbe | nindent 10 }}
           {{- end }}
           {{ if .Values.env -}}
           env:
