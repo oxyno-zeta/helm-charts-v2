@@ -87,7 +87,7 @@ env:
 
 envFrom:
   []
-  # Example (see https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.24/#envfromsource-v1-core)
+  # Example (see https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#environment-variables)
   # - secretRef:
   #     name: mysecret
   # - configMapRef:
