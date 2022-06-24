@@ -85,6 +85,14 @@ env:
   # Example
   # VARIABLE: VALUE
 
+envFrom:
+  []
+  # Example (see https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#environment-variables)
+  # - secretRef:
+  #     name: mysecret
+  # - configMapRef:
+  #     name: myconfigmap
+
 #
 # See configuration of project: https://oxyno-zeta.github.io/s3-proxy/
 #
