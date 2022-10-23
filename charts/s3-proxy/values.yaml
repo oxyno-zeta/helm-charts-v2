@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: oxynozeta/s3-proxy
-  tag: 4.5.0
+  tag: 4.6.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -180,7 +180,7 @@ fixedConfigFiles:
 #
 # Note: This can put as blank. The application can start without any configuration.
 configFiles:
-  config.yaml: |-
+  config.yaml:
     # Log configuration
     log:
       # Log level
@@ -190,6 +190,12 @@ configFiles:
 
     # Server configurations
     # server:
+    #   # Server timeout options
+    #   timeouts:
+    #     readTimeout: ""
+    #     readHeaderTimeout: ""
+    #     writeTimeout: ""
+    #     idleTimeout: ""
     #   # Compress options
     #   compress:
     #     enabled: true
