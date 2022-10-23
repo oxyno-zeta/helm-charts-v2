@@ -11,12 +11,20 @@ metadata:
 data:
 {{- if .Values.fixedConfigFiles -}}
 {{- range $key, $value := .Values.fixedConfigFiles }}
-  {{ $key }}: {{ $value | quote }}
+  {{- if typeIs "string" $value }}
+    {{ $key }}: {{ $value | quote }}
+  {{- else }}
+    {{ $key }}: {{ $value | toYaml | quote }}
+  {{- end }}
 {{- end }}
 {{- end }}
 {{- if .Values.configFiles -}}
 {{- range $key, $value := .Values.configFiles }}
-  {{ $key }}: {{ $value | quote }}
+  {{- if typeIs "string" $value }}
+    {{ $key }}: {{ $value | quote }}
+  {{- else }}
+    {{ $key }}: {{ $value | toYaml | quote }}
+  {{- end }}
 {{- end }}
 {{- end }}
 {{- end }}
