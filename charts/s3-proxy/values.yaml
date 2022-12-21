@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: oxynozeta/s3-proxy
-  tag: 4.6.1
+  tag: 4.7.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -464,6 +464,10 @@ configFiles:
         #       indexDocument: index.html
         #       # Allow to add headers to streamed files (can be templated)
         #       streamedFileHeaders: {}
+        #       # Redirect to a S3 signed URL
+        #       redirectToSignedUrl: true
+        #       # Signed URL expiration time
+        #       signedUrlExpiration: 15m
         #       # Webhooks
         #       webhooks: []
         #   # Action for PUT requests on target
