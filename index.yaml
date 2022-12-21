@@ -184,6 +184,31 @@ entries:
     version: 1.0.0
   s3-proxy:
   - apiVersion: v1
+    appVersion: 4.7.0
+    created: "2022-12-21T16:09:43.218552829Z"
+    description: A Helm chart for Kubernetes to deploy S3-Proxy
+    digest: 55d8cf9551fb075041eca5817a788f372abb44a1840d8f422676c6c881958c8b
+    home: https://github.com/oxyno-zeta/s3-proxy
+    icon: https://raw.githubusercontent.com/oxyno-zeta/s3-proxy/master/docs/logo/logo.png
+    keywords:
+    - s3
+    - reverse-proxy
+    - s3-proxy
+    - openid-connect
+    - basic-authentication
+    - s3-bucket
+    - serve-static
+    - opa
+    maintainers:
+    - email: havrileckalexandre@gmail.com
+      name: oxyno-zeta
+    name: s3-proxy
+    sources:
+    - https://github.com/oxyno-zeta/s3-proxy
+    urls:
+    - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/s3-proxy-2.15.0/s3-proxy-2.15.0.tgz
+    version: 2.15.0
+  - apiVersion: v1
     appVersion: 4.6.1
     created: "2022-12-08T21:23:49.994406662Z"
     description: A Helm chart for Kubernetes to deploy S3-Proxy
@@ -810,4 +835,4 @@ entries:
     urls:
     - https://github.com/oxyno-zeta/helm-charts-v2/releases/download/s3-proxy-1.0.0/s3-proxy-1.0.0.tgz
     version: 1.0.0
-generated: "2022-12-08T21:23:49.994706965Z"
+generated: "2022-12-21T16:09:43.218978932Z"
