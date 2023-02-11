@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: oxynozeta/s3-proxy
-  tag: 4.7.0
+  tag: 4.8.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
