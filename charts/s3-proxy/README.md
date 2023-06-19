@@ -105,3 +105,31 @@ $ helm install oxynozeta-stable/s3-proxy --name my-release -f values.yaml
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
+
+## Cases
+
+### Temporary directory for uploads
+
+When uploads are enabled, files will be uploaded in a temporary file written in OS temporary directory (`/tmp` in the container).
+
+Here is an example to have a volume for that directory:
+
+```yaml
+extraVolumesMounts:
+  - name: tmp
+    mountPath: /tmp
+
+extraVolumes:
+  - name: tmp
+    ephemeral:
+      volumeClaimTemplate:
+        #   metadata:
+        #     labels:
+        #       type: my-frontend-volume
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          storageClassName: "scratch-storage-class"
+          resources:
+            requests:
+              storage: 50Gi
+```
