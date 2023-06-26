@@ -18,7 +18,7 @@ maintainers:
 name: s3-proxy
 sources:
   - https://github.com/oxyno-zeta/s3-proxy
-version: 2.17.1
+version: 2.17.2
 annotations:
   artifacthub.io/category: networking
   artifacthub.io/license: Apache-2.0
