@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: oxynozeta/s3-proxy
-  tag: 4.10.0
+  tag: 4.11.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -469,6 +469,9 @@ configFiles:
       #   #       redirectToSignedUrl: true
       #   #       # Signed URL expiration time
       #   #       signedUrlExpiration: 15m
+      #   #       # Disable listing
+      #   #       # Note: This will return an empty list or you should change the folder list template (in general or in this target)
+      #   #       disableListing: false
       #   #       # Webhooks
       #   #       webhooks: []
       #   #   # Action for PUT requests on target
