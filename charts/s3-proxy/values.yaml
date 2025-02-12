@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: oxynozeta/s3-proxy
-  tag: 4.17.2
+  tag: 4.18.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -187,6 +187,13 @@ configFiles:
       level: info
       # Log format
       format: text
+      # Log file path
+      # filePath:
+
+    # Metrics configuration
+    metrics:
+      # Disable router path save in HTTP metrics
+      disableRouterPath: false
 
     # Server configurations
     # server:
@@ -349,7 +356,7 @@ configFiles:
     #   resource:
     #     # A Path must be declared for a resource filtering
     #     path: /
-    #     # HTTP Methods authorized (Must be in GET, PUT or DELETE)
+    #     # HTTP Methods authorized (Must be in HEAD, GET, PUT or DELETE)
     #     methods:
     #       - GET
     #       - PUT
@@ -394,7 +401,7 @@ configFiles:
       #   #     whiteList: true
       #   #   # A Path must be declared for a resource filtering (a wildcard can be added to match every sub path)
       #   #   - path: /specific_doc/*
-      #   #     # HTTP Methods authorized (Must be in GET, PUT or DELETE)
+      #   #     # HTTP Methods authorized (Must be in HEAD, GET, PUT or DELETE)
       #   #     methods:
       #   #       - GET
       #   #       - PUT
@@ -408,7 +415,7 @@ configFiles:
       #   #         - group: specific_users
       #   #   # A Path must be declared for a resource filtering (a wildcard can be added to match every sub path)
       #   #   - path: /directory1/*
-      #   #     # HTTP Methods authorized (Must be in GET, PUT or DELETE)
+      #   #     # HTTP Methods authorized (Must be in HEAD, GET, PUT or DELETE)
       #   #     methods:
       #   #       - GET
       #   #       - PUT
@@ -431,7 +438,7 @@ configFiles:
       #   #         url: http://localhost:8181/v1/data/example/authz/allowed
       #   #   # A Path must be declared for a resource filtering (a wildcard can be added to match every sub path)
       #   #   - path: /specific_doc/*
-      #   #     # HTTP Methods authorized (Must be in GET, PUT or DELETE)
+      #   #     # HTTP Methods authorized (Must be in HEAD, GET, PUT or DELETE)
       #   #     methods:
       #   #       - GET
       #   #       - PUT
