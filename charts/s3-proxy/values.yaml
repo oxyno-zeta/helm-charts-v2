@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: oxynozeta/s3-proxy
-  tag: 4.18.1
+  tag: 4.20.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -19,8 +19,7 @@ serviceAccount:
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name:
-  annotations:
-    {}
+  annotations: {}
     # add annotations
 
 service:
@@ -37,8 +36,7 @@ service:
 ingress:
   enabled: false
   className: ""
-  annotations:
-    {}
+  annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
@@ -74,19 +72,16 @@ existingSecret:
 
 # Secret files for secrets declaration
 # Each key will be mounted in /proxy/secret-files
-secretFiles:
-  {}
+secretFiles: {}
   # Example
   # my-syper-secret-file: my-awesome-secret
 
 # Environment variables
-env:
-  {}
+env: {}
   # Example
   # VARIABLE: VALUE
 
-envFrom:
-  []
+envFrom: []
   # Example (see https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#environment-variables)
   # - secretRef:
   #     name: mysecret
@@ -99,8 +94,7 @@ envFrom:
 # Note: This is used mainly for configuration parts that cannot be hot reloaded.
 #       For example, the server parts like SSL/TLS configuration, ...
 #       Or simply because you prefer to have it static and force a force reload of application.
-fixedConfigFiles:
-  {}
+fixedConfigFiles: {}
   # server.yaml: |-
   #   # Server configurations
   #   # server:
@@ -383,8 +377,7 @@ configFiles:
     #             path: password1-in-file
 
     # Targets map
-    targets:
-      {}
+    targets: {}
       # first-bucket:
       #   ## Mount point
       #   mount:
@@ -499,8 +492,14 @@ configFiles:
       #   #       # Values can be templated. Empty values will be flushed.
       #   #       metadata:
       #   #         key: value
+      #   #         # Request headers can be forwarded as S3 object metadata using .Input.RequestHeaders.Get.
+      #   #         # The header lookup is case-insensitive
+      #   #         # (e.g. "x-my-header" and "X-My-Header" both work).
+      #   #         uploaded-by: '{{ .Input.RequestHeaders.Get "X-Uploaded-By" }}'
+      #   #         correlation-id: '{{ .Input.RequestHeaders.Get "X-Correlation-Id" }}'
       #   #       # System Metadata cases.
       #   #       # Values can be templated. Empty values will be flushed.
+      #   #       # Request headers can also be forwarded using .Input.RequestHeaders.Get.
       #   #       systemMetadata:
       #   #         # Cache-Control value (will be put as header after)
       #   #         cacheControl: ""
@@ -629,8 +628,7 @@ configFiles:
 # The full container definition is available here.
 sidecars: []
 
-resources:
-  {}
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
@@ -679,8 +677,7 @@ prometheus:
     # relabelings: []
 
 # Arbitrary non-identifying metadata for s3-proxy pods.
-podAnnotations:
-  {}
+podAnnotations: {}
   # prometheus.io/scrape: "true"
   # prometheus.io/path: "/metrics"
   # prometheus.io/port: "9090"
@@ -710,8 +707,7 @@ podDisruptionBudget:
   minAvailable: 1
   maxUnavailable:
 
-deploymentStrategy:
-  {}
+deploymentStrategy: {}
   # type: RollingUpdate
   # rollingUpdate:
   #   maxSurge: 1
@@ -732,15 +728,13 @@ volumeMountPaths:
   customTemplates: /proxy/custom-templates
 
 # This can be used to declare extra volumes.
-extraVolumes:
-  []
+extraVolumes: []
   # - name: test
   #   emptyDir: {}
 
 # This is for extra mounts in the s3-proxy containers only.
 # Sidecars or init containers have their own declarations.
-extraVolumesMounts:
-  []
+extraVolumesMounts: []
   # - name: test
   #   mountPath: "/test"
 
