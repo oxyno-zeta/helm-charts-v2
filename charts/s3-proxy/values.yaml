@@ -49,6 +49,36 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+httpRoute:
+  enabled: false
+  annotations: {}
+  labels: {}
+  parentRefs:
+    - name: gateway
+      namespace: gateway-system
+      # sectionName: https
+  hostnames: []
+  #   - app.example.com
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      # filters:
+      #   - type: RequestHeaderModifier
+      #     requestHeaderModifier:
+      #       set:
+      #         - name: X-Forwarded-Proto
+      #           value: https
+      #   - type: URLRewrite
+      #     urlRewrite:
+      #       path:
+      #         type: ReplacePrefixMatch
+      #         replacePrefixMatch: /
+      # timeouts:
+      #   request: 30s
+      #   backendRequest: 15s
+
 # Custom templates declaration
 # Will be mounted in /proxy/custom-templates
 customTemplates: {}
