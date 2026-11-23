@@ -91,6 +91,7 @@ The following table lists the configurable parameters of the s3-proxy chart and 
 | `podDisruptionBudget.minAvailable`            | Minimum number / percentage of pods that should remain scheduled                                                                                           | `1`                      |
 | `podDisruptionBudget.maxUnavailable`          | Maximum number / percentage of pods that may be made unavailable                                                                                           | `""`                     |
 | `podSecurityContext.fsGroup`                  | Supplementary group ID                                                                                                                                     | `1000`                   |
+| `securityContext`                             | [Security context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) of the s3-proxy container                                   | `{}`                     |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
