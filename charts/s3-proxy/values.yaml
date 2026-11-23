@@ -757,6 +757,7 @@ podSecurityContext:
   fsGroup: 1000
 
 # Security context of the s3-proxy container.
+# Pod-level fields such as runAsNonRoot or seccompProfile go in podSecurityContext.
 securityContext: {}
   # allowPrivilegeEscalation: false
   # capabilities:
