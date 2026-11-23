@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: oxynozeta/s3-proxy
-  tag: 5.1.1
+  tag: 5.3.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -219,8 +219,18 @@ configFiles:
       # Disable router path save in HTTP metrics
       disableRouterPath: false
 
+    # Internal server configurations
+    # internalServer:
+    #   # Configured independently from server.trustedIPPrefixes (same format and behavior).
+    #   trustedIPPrefixes: []
+
     # Server configurations
     # server:
+    #   # Trusted reverse proxy CIDR ranges for X-Forwarded-For parsing.
+    #   # Empty or omitted: skip the X-Forwarded-For middleware.
+    #   # Use only your proxy's actual IPv4/IPv6 CIDR ranges; invalid CIDRs fail startup.
+    #   # Later client-IP middlewares can override the XFF result (see configuration docs).
+    #   trustedIPPrefixes: []
     #   # Server timeout options
     #   timeouts:
     #     readTimeout: ""
@@ -346,13 +356,14 @@ configFiles:
     #       clientID: client-id
     #       clientSecret:
     #         path: client-secret-in-file # client secret file
-    #       state: my-secret-state-key # do not use this in production ! put something random here
     #       issuerUrl: https://issuer-url/
+    #       stateLifetime: 10m # Maximum time to complete an OIDC login (minimum: 1s).
     #       redirectUrl: http://localhost:8080/ # /auth/oidc/callback will be added automatically
     #       scopes: # OIDC Scopes (defaults: openid, email, profile)
     #         - openid
     #         - email
     #         - profile
+    #       # uidClaim: sub # Claim used for the OIDC user identifier and user isolation.
     #       groupClaim: groups # path in token
     #       # cookieDomains: [] # Cookie domains matching the request host
     #       # cookieSecure: true # Is the cookie generated secure ?
@@ -527,6 +538,8 @@ configFiles:
       #   #     enabled: true
       #   #     # Configuration for PUT requests
       #   #     config:
+      #   #       # Name of the multipart form field holding the uploaded file
+      #   #       formFieldName: file
       #   #       # Metadata key/values that will be put on S3 objects.
       #   #       # Values can be templated. Empty values will be flushed.
       #   #       metadata:

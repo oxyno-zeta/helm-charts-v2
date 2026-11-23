@@ -40,9 +40,9 @@ The following table lists the configurable parameters of the s3-proxy chart and 
 | Parameter                                     | Description                                                                                                                                                | Default                  |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
 | `replicaCount`                                | Desired number of pods                                                                                                                                     | `1`                      |
-| `image.name`                                  | Container image name (Including repository name if not `hub.docker.com`).                                                                                  | `oxynozeta/s3-proxy`     |
+| `image.repository`                            | Container image name (Including repository name if not `hub.docker.com`).                                                                                  | `oxynozeta/s3-proxy`     |
 | `image.pullPolicy`                            | Container pull policy.                                                                                                                                     | `IfNotPresent`           |
-| `image.tag`                                   | Container image tag.                                                                                                                                       | `4.1.3`                  |
+| `image.tag`                                   | Container image tag.                                                                                                                                       | `5.3.0`                  |
 | `nameOverride`                                | Name override                                                                                                                                              | `""`                     |
 | `fullnameOverride`                            | Fullname override                                                                                                                                          | `""`                     |
 | `serviceAccount.create`                       | Specifies whether a service account should be created                                                                                                      | `true`                   |
@@ -105,6 +105,18 @@ $ helm install oxynozeta-stable/s3-proxy --name my-release -f values.yaml
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
+
+## Upgrading to S3-Proxy 5.3.0
+
+This chart upgrades S3-Proxy from 5.1.1 to [5.3.0](https://github.com/oxyno-zeta/s3-proxy/releases/tag/v5.3.0).
+Review your application configuration when upgrading:
+
+- OIDC login state is now generated per login. Remove the old `authProviders.oidc.<provider>.state` setting. Use `stateLifetime` to control login expiry (default `10m`, minimum `1s`).
+- OIDC providers support `uidClaim` to choose the identifier used for user isolation. When omitted, S3-Proxy uses `preferred_username`, falling back to `email`. Missing, non-string, empty, or whitespace-padded identifiers are rejected. Changing the selected claim changes which per-user S3 prefix is used.
+- `server.trustedIPPrefixes` and `internalServer.trustedIPPrefixes` independently control trusted proxy CIDRs for `X-Forwarded-For`. With an empty or omitted list, that middleware is skipped. If you rely on forwarded client IPs behind an Ingress or Gateway, configure only the actual proxy CIDRs. See the [upstream configuration reference](https://github.com/oxyno-zeta/s3-proxy/blob/v5.3.0/docs/configuration/structure.md#trusted-proxy-ip-prefixes) for behavior and limitations.
+- `targets.<target>.actions.PUT.config.formFieldName` selects the multipart upload field (default `file`).
+
+These application settings can be supplied through `configFiles` or `fixedConfigFiles`; the updated examples are in [values.yaml](values.yaml).
 
 ## Cases
 
