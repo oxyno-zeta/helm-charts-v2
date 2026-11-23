@@ -769,6 +769,13 @@ deploymentStrategy: {}
 podSecurityContext:
   fsGroup: 1000
 
+# Security context of the s3-proxy container.
+securityContext: {}
+  # allowPrivilegeEscalation: false
+  # capabilities:
+  #   drop:
+  #     - ALL
+
 # This is the declaration of the default volumes mount paths
 # in the s3-proxy container in pod.
 # This can be override for sidecar usage for example, init containers, ...
